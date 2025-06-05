@@ -11,6 +11,9 @@ return [
     | these language lines according to your application's requirements.
     |
     */
-    'registration_sucess' => 'account has been created successfully',
+    'registration_sucess' => 'Account has been created successfully',
+    'registration_verify' => 'Registration successful, please verify your account with the email sent to you.',
     'registr_valid_erreurs' => 'Please review your details and try again',
+    'login_success' => 'Login successful! Welcome back.',
+    'login_success_verify' => 'Login successful! Please enter the OTP sent to your email to verify your account',
 ];

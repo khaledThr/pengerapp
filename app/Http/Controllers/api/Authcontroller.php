@@ -16,6 +16,7 @@ class Authcontroller extends Controller
     //registration function
     public function register(Request $request): Response
     {
+        //validate inputs
         try {
             $request->validate([
                 'name'=> 'required|string|max:255',
@@ -41,16 +42,54 @@ class Authcontroller extends Controller
 
         // Return response
         return response([
-            'message' => __('app.registration_sucess'),
+              'message' => $user->email_verified_at ? __('app.registration_success'):__('app.registration_verify'),
             'result' => [
                 'user' => new userresource($user),
                 'token' => $token
             ]
             ],201);
-
-  
     }
 
+        //login function
+    public function login(Request $request): Response
+    {
+        //validate inputs
+        try {
+            $request->validate([
+                'email'=> 'required|email|max:255',
+                'password' => 'required|min:6|max:255', 
+            ]);
+        } catch (ValidationException $e) {
+            return response([
+                'message' => __('app.registr_valid_erreurs'),
+                'errors' => $e->errors()
+            ]);
+        }
+
+        // login user
+        $user = User::where('email',$request->email)->first();
+        // Check if user exists and password is correct
+        if(!$user){
+            return response([
+                    'message'=> __('auth.failed'),
+            ],401);
+        } else if(!Hash::check($request->password,$user->password)){
+            return response([
+                    'message'=> __('auth.password'),
+            ],401);
+        }
+
+        // Authentication successful, create token
+        $token = $user->createToken('auth')->plainTextToken;
+        // Return response
+        return response([
+            'message' => $user->email_verified_at ? __('app.login_success'):__('app.login_success_verify'),
+            'result' => [
+                'user' => new userresource($user),
+                'token' => $token
+            ]
+        ]);
+    }
 
 
 }

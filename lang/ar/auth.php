@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Authentication Language Lines
@@ -13,8 +12,7 @@ return [
     |
     */
 
-    'failed' => 'These credentials do not match our records.',
-    'password' => 'The provided password is incorrect.',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
-
+    'failed' => 'عذراً، بيانات الدخول غير صحيحة. يرجى التحقق والمحاولة مرة أخرى.',
+    'password' => 'كلمة المرور غير صحيحة',
+    'throttle' => 'لقد قمت بعدة محاولات دخول. يرجى الانتظار ثانية قبل المحاولة مرة أخرى.',
 ];

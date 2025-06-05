@@ -11,6 +11,9 @@ return [
     | these language lines according to your application's requirements.
     |
     */
-    'registration_sucess' => ' تم تسجيلك بنجاح',
-    'registr_valid_erreurs' => 'يرجى مراجعة البيانات والمحاولة مرة أخرى',
+    'registration_sucess' => 'تم التسجيل بنجاح.',
+    'registration_verify' => 'يرجى تفعيل الحساب عبر البريد الإلكتروني.',
+    'registr_valid_erreurs' => 'تحقق من البيانات وحاول مرة أخرى.',
+    'login_success' => 'تم تسجيل الدخول بنجاح.',
+    'login_success_verify' => 'أدخل رمز التحقق المرسل إلى بريدك.',
 ];
