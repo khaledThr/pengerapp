@@ -1,14 +1,20 @@
 <x-mail::message>
-<p>Hi {{ $user->name }},</p>
+Hi {{ $user->name }},
 
-<p>We have received a request to verify your Penger account.</p>
+@if($otp->type === 'login')
+We have received a request to log in to your Penger account.
+@elseif($otp->type === 'passwordRest')
+We have received a request to reset your Penger account password.
+@else
+We have received a request to register in Penger.
+@endif
 
-<p>Please use the following One-Time Password (OTP) to complete your verification process:</p>
+Please use the following One-Time Password (OTP) to complete your verification process:
 
-<h2 style="text-align: center; letter-spacing: 2px;">{{ $otp->code }}</h2>
+# {{ $otp->code }}
 
-<p>This OTP should not be shared with anyone.</p>
+This OTP should not be shared with anyone.
 
-Thank you,<br>
+Thank you,  
 {{ config('app.name') }}
 </x-mail::message>
