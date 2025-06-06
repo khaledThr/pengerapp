@@ -16,4 +16,8 @@ return [
     'registr_valid_erreurs' => 'Please review your details and try again',
     'login_success' => 'Login successful! Welcome back.',
     'login_success_verify' => 'Login successful! Please enter the OTP sent to your email to verify your account',
+    'otp_mail_subject' => 'Your Penger One-Time Password (OTP)',
+    'otp_sent' => 'An OTP has been sent to your email address.',
+    'otp_invalid' => 'The OTP you entered is invalid or expired.',
+    'validation_sucess' => 'Your account has been successfully verified.',
 ];
